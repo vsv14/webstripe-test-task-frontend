@@ -1,6 +1,6 @@
 # Test task Webstripe
 
-[Availible here (click)](https://https://webstripe-task.herokuapp.com/home.html)
+[Availible here (click)](https://webstripe-task.herokuapp.com/home.html)
 
 ## Tools
 * Webpack: 5.73.0
