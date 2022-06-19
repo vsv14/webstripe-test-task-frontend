@@ -1,0 +1,1966 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import url(fonts.scss);
+
+
+
+
+$color-dark: #252525;
+$color-green: #2ECC71;
+$color-green-text: #2FCC71;
+
+$desktop-screen:1320px;
+$laptop-screen:1144px;
+$mobile-screen:360px;
+
+
+@mixin desktop {
+   @media screen and (min-width: 1400px) { 
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media screen and (min-width: 1200px) { 
+         @content;
+     }
+ }
+
+ @mixin mobile {
+    @media screen and (min-width: 360px) { 
+         @content;
+     }
+ }
+
+@mixin  content-scope {
+    @extend .container;
+    margin: 0 auto;
+    padding: 0;
+
+
+    // ------------------------------ | SCREEN WIDTH | -----------------|
+    // @include mobile{
+    //     width: $mobile-screen;
+    // }
+
+    // @include laptop{ 
+    //     width: $laptop-screen;
+    // }
+
+    // @include desktop{ 
+    //     width: $desktop-screen;
+    // }
+    // -----------------------------------------------------------------|
+}
+
+body, header, main, footer {
+    min-width: $mobile-screen;
+}
+
+@mixin pg-0 {
+    padding: 0;
+}
+
+@mixin mg-0 {
+    margin: 0;
+}
+
+* {
+    font-family: 'OpenSans', 'sans-serif';
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+h1, h2, p {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'OpenSans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 45px;
+    line-height: 61px;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'OpenSans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 44px;
+}
+
+p {
+    font-family: 'OpenSans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 34px;
+    text-align: center;
+    color: $color-dark
+}
+
+header nav.navbar{
+    position: relative;
+    @include content-scope();
+
+    @include mobile{
+        padding: 0;
+        height: 102px;
+    }
+
+    @include laptop{ 
+        padding: 0px;
+        height: 105px;
+    }
+
+    @include desktop{ 
+        padding: 0px;
+        height: 105px;
+    }
+
+
+    & > a {
+        background-color: white;
+        z-index: 2;
+        @include mobile{ 
+            width: 100%;
+            height: 100%;
+            padding-top: 41px;
+            text-align: center;
+        }
+    
+        @include laptop{ 
+            width: 154px;
+            height: 44px;
+            padding-top: 0px;
+        }
+    
+        @include desktop{ 
+            width: 179px;
+            height: 51px;
+            padding-top: 0px;
+        }
+    }
+
+    a img.nav-logo{
+        margin: auto 0;
+        @include mobile{ 
+            width: 146px;
+            height: 39px;
+        }
+    
+        @include laptop{
+            
+            width: 154px;
+            height: 44px;
+        }
+    
+        @include desktop{ 
+            width: 179px;
+            height: 51px;
+        }
+        
+    }
+
+    & > div{
+        @extend .d-flex;
+        @include mobile{
+            z-index: 1;
+            width: 96%;
+            position: absolute;
+            flex-wrap: wrap;
+            background-color: $color-green;
+            padding: 26px 20px 21px 20px;
+            margin: 0 2%;
+            top: -100vh;
+            border-bottom: 4px solid $color-dark;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.35);
+        }
+    
+        @include laptop{
+            z-index: 2;
+            width: fit-content;
+            position: relative;
+            flex-wrap: nowrap;
+            background-color: white;
+            padding: 0;
+            top: 0 !important;
+            border-bottom: none;
+            box-shadow: none;
+        }
+    
+        @include desktop{
+            z-index: 2;
+            width: fit-content;
+            position: relative;
+            flex-wrap: nowrap;
+            background-color: white;
+            padding: 0;
+            top: 0 !important;
+            border-bottom: none;
+            box-shadow: none;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            @include mobile{
+                width: 100%;
+                &.icons-green{
+                    visibility: hidden;
+                    height: 0;
+                    width: 0;
+                }
+                &.icons-black{
+                    visibility: visible;
+                    height: fit-content;
+                    width: 100%;
+                    margin-top: 77px;
+                }
+            }
+        
+            @include laptop{ 
+                width: fit-content;
+                &.icons-green{
+                    visibility: visible;
+                    height: fit-content;
+                    width: fit-content;
+                }
+                &.icons-black{
+                    visibility: hidden;
+                    height: 0;
+                    width: 0;
+                    margin-top: 0;
+                }
+            }
+        
+            @include desktop{ 
+                width: fit-content;
+                &.icons-green{
+                    visibility: visible;
+                    height: fit-content;
+                    width: fit-content;
+                }
+                &.icons-black{
+                    visibility: hidden;
+                    height: 0;
+                    width: 0;
+                    margin-top: 0;
+                }
+            }
+
+            & > li{
+                & > a {
+                    font-size: 18px;
+                    line-height: 25px;
+                    font-weight: 600; 
+                }
+                @include mobile{ 
+                    display: block;
+                    margin-bottom: 13px;
+                }
+            
+                @include laptop{ 
+                    display: inline;
+                    margin-right: 20px;
+                }
+            
+                @include desktop{ 
+                    display: inline;
+                    margin-right: 22px;
+                }
+            }
+        }
+
+        .net-social{
+            @include mobile{ 
+            
+            }
+        
+            @include laptop{ 
+                margin-left: 37px;
+            }
+        
+            @include desktop{ 
+                margin-left: 125px;
+            }
+            
+            ul {
+                &.icons-green{
+                    li{margin:0;margin-left: 7px;}
+                }
+                &.icons-black{
+                    li{margin:0;margin-right: 7px;}
+                }
+                li{
+                    display: inline;
+                    @include mobile{ 
+                       
+                    }
+                
+                    @include laptop{ 
+                        
+                    }
+                
+                    @include desktop{ 
+                        
+                    }
+                    a {
+                        width: fit-content;
+                        height: fit-content;
+                        margin: 0;
+                        
+        
+                        img {
+                            margin: 0;
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+section {
+    z-index: -100;
+    width: 100%;
+    min-width: $mobile-screen;
+    &.intro {
+        @include mobile{
+            height: fit-content;
+        }
+    
+        @include laptop{
+            flex-wrap: wrap;
+            height: 755px;
+        }
+    
+        @include desktop{ 
+            height: 874px;
+        }
+        
+        background-color: $color-green;
+        
+
+        div.content {
+            display: grid;
+            align-content: center;
+            padding: auto 0;
+            @include mobile{
+                grid-template-columns: auto;
+                grid-template-rows: auto auto auto;
+            }
+        
+            @include laptop{
+                grid-template-columns: auto auto;
+                grid-template-rows: auto auto;
+            }
+        
+            @include desktop{
+                grid-template-columns: auto auto;
+                grid-template-rows: auto auto;
+            }
+
+            @include content-scope();
+            
+
+            height: fit-content;
+            color: white;
+            height: 100%;
+
+            h1{
+                height: fit-content;
+                
+                @include mobile{ 
+                    font-weight: 700;
+                    font-size: 35px;
+                    line-height: 40px;
+                    text-align: center;
+                    min-width: 296px;
+                    width: 90%;
+                    margin: 7px auto 0 auto;
+                }
+            
+                @include laptop{ 
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 52px;
+                    line-height: 71px;
+                    text-align: left;
+                    width: 652px;
+                    margin: auto 0 0 0;
+                }
+            
+                @include desktop{ 
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 52px;
+                    line-height: 71px;
+                    text-align: left;
+
+                    margin: auto 0 0 0;
+                }
+            }
+
+            img{
+                display: block;
+                @include mobile{
+                    margin-top: 25px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    grid-column: 1;
+                    grid-row: 2;
+                    visibility: visible;
+                    width: 303px;
+                    height: 437px;
+                }
+            
+                @include laptop{ 
+                    margin-top: 0;
+                    margin-left: auto;
+                    margin-right: auto;
+                    grid-column: 2;
+                    grid-row: 1/3;
+                    visibility: visible;
+                    width: 456px;
+                    height: 656px;
+                }
+            
+                @include desktop{
+                    margin-top: 0;
+                    margin-left: auto;
+                    margin-right: auto;
+                    grid-column: 2;
+                    grid-row: 1/3;
+                    visibility: visible;
+                    width: 456px;
+                    height: 656px;
+                }
+            }
+
+            .desc{
+                height: fit-content;
+                @include mobile{ 
+                    @include make-col(12);
+                    margin: 0px auto 25px auto;
+                }
+            
+                @include laptop{ 
+                    @include make-col();
+                }
+            
+                @include desktop{ 
+                    @include make-col();
+                }
+
+                p {
+                    @include mobile{ 
+                        margin: 28px auto 28px auto;
+                        min-width: 293px;
+                        width: 90%;
+                        font-size: 22px;
+                        line-height: 25px;
+                        text-align: center;
+                    }
+                
+                    @include laptop{ 
+                        margin: 28px 0 47px 0;
+                        font-size: 32px;
+                        font-weight: 400;
+                        line-height: 44px;
+                        text-align: left;
+                        width: 635px;
+                    }
+                
+                    @include desktop{ 
+                        margin: 30px 0 48px 0;
+                        font-size: 32px;
+                        font-weight: 400;
+                        line-height: 44px;
+                        text-align: left;
+                        width: 635px;
+                    }
+                    
+                   
+                }
+
+                button{
+                    @include mobile{ 
+                        display: block;
+                        margin: 0 auto;
+                    }
+                
+                    @include laptop{ 
+                        
+                        margin: 0;
+                    }
+                
+                    @include desktop{ 
+                        margin: 0;
+                    }
+
+                    box-sizing: border-box;
+    
+                    width: 255px;
+                    height: 56px;
+    
+                    background: $color-dark;
+                    border: 3px solid $color-dark;
+                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+                    border-radius: 10px;
+    
+                    font-family: 'OpenSans';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 27px;
+                    text-align: center;
+    
+                    transition: 0.3s;
+                    color: white;
+    
+                    &:hover{                    
+                        background-color: $color-green;
+                        color:black;
+                        border: 3px solid black;
+                    }
+                }
+            }
+        }
+    }
+
+    &.digital-secure{
+        & div{
+            @include content-scope();
+            margin-bottom: 40px;
+            h1{
+                @include mobile{ 
+                    margin: 40px auto 16px auto;
+                    min-width: 277px;
+                    width: 90%;
+                    font-size: 35px;
+                    line-height: 32px;
+                }
+            
+                @include laptop{ 
+                    margin: 30px 0;
+                    font-size: 45px;
+                    line-height: 61px;
+                }
+            
+                @include desktop{
+                    margin: 30px 0;
+                    font-size: 45px;
+                    line-height: 61px;
+                    
+                }
+                
+                text-transform: capitalize;
+            }
+
+            & p {
+
+                @include mobile{
+                    min-width: 320px;
+                    width:90%;
+                    margin: 0 auto;
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 25px;
+
+                }
+            
+                @include laptop{ 
+                    width: 935px;
+                    font-size: 25px;
+                    line-height: 34px;
+                }
+            
+                @include desktop{
+                    width: 935px;
+                    font-size: 25px;
+                    line-height: 34px;
+                }
+                
+            }
+
+            div.list-cards{
+                @extend .d-flex;
+                flex-wrap: wrap;
+                @include mobile{ 
+                    margin-top: 25px;
+                    margin-bottom: 0;
+                }
+            
+                @include laptop{ 
+                    margin-top: 59px;
+                    margin-bottom: 44px;
+                }
+            
+                @include desktop{
+                    margin-top: 40px;
+                    margin-bottom: 54px;
+                }
+
+                
+                .item-card{
+                    
+                    @include mobile{
+                        @include make-col(12);
+                        min-width: 352px;
+                        max-width: 428px;
+                        text-align: center;
+                        margin-bottom: 25;
+                    }
+                
+                    @include laptop{
+                        @include make-col(4);
+                        width: 352px;
+                        text-align: center;
+                        margin-bottom: 0;
+                    }
+                
+                    @include desktop{
+                        @include make-col(4);
+                        width: 428px;
+                        text-align: center;
+                        margin-bottom: 0;
+                    }
+                    
+                    img{
+                        @include mobile(){ 
+                            width: 70%;
+                        }
+                    
+                        @include laptop{ 
+                            
+                        }
+                    
+                        @include desktop{
+                            
+                        }
+
+                    }
+    
+                    h2{
+
+                        @include mobile{
+                            margin-top: 25px;
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 22px;
+                            line-height: 30px;
+                            text-align: center;
+                        }
+                    
+                        @include laptop{ 
+                            margin-top: 30px;
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 30px;
+                            line-height: 41px;
+                            text-align: center;
+                        }
+                    
+                        @include desktop{
+                            margin-top: 30px;
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 30px;
+                            line-height: 41px;
+                            text-align: center;
+                        }
+                        
+                    }      
+    
+                    & p{
+                        width: 95%;
+                        margin: 0 auto;
+                        
+
+                        @include mobile{
+                            margin-top: 15px;
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 18px;
+                            line-height: 25x;
+                            text-align: center;
+                        }
+                    
+                        @include laptop{ 
+                            margin-top: 17px;
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 22px;
+                            line-height: 30px;
+                            text-align: center;
+                        }
+                    
+                        @include desktop{
+                            margin-top: 17px;
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 22px;
+                            line-height: 30px;
+                            text-align: center;
+                        }
+                        
+                    }
+                }
+            }
+
+                    
+            div {
+                input, button{
+                    @include mobile{ 
+                        width: 320px;
+                    }
+                
+                    @include laptop{ 
+                        width: 368px;
+                    }
+                
+                    @include desktop{
+                        width: 316px;
+                    }
+
+                    height: 47px;
+                    border-radius: 10px;
+                }
+
+                input{
+                    @include mobile{ 
+                        margin: 0;
+                    }
+                
+                    @include laptop{ 
+                        margin-right: 20px;
+                    }
+                
+                    @include desktop{
+                        margin-right: 20px;
+                    }
+
+                    border: 1px solid #969696;
+
+                    font-family: 'OpenSans';
+                    padding-left: 17px;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 27px;
+                    
+
+                    color: #969696;
+                    &:focus{
+                        border: 1px solid #84efff;
+
+                    }
+                }
+
+                button{
+                    @include mobile{ 
+                        margin: 31px 0 0 0;
+                    }
+                
+                    @include laptop{ 
+                        
+                    }
+                
+                    @include desktop{
+                        
+                    }
+
+                    font-family: 'OpenSans';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 27px;
+                    text-align: center;
+                    color: white;
+                    background-color: $color-green;
+                    border: 3px solid $color-green;
+                    transition: 0.3s;
+
+                    &:hover{
+                        // animation
+                        background-color: white;
+                        border: 3px solid $color-green;
+                        color: $color-green-text;
+                    }
+                }
+            }
+
+        }
+        
+    }
+
+    footer {
+        background-color: $color-dark;
+        
+        p{
+            margin: auto;
+            @include mobile(){ 
+                padding: 28px 39px 27px 39px;
+                min-width: 297;
+
+                font-style: normal;
+                font-weight: 600;
+                font-size: 22px;
+                line-height: 30px;
+                text-align: center;
+            }
+        
+            @include laptop{ 
+                padding-top: 50px;
+                padding-bottom: 50px;
+                width: 694px;
+
+                font-style: normal;
+                font-weight: 600;
+                font-size: 32px;
+                line-height: 44px;
+                text-align: center;
+            }
+        
+            @include desktop{
+                padding-top: 50px;
+                padding-bottom: 50px;
+                width: 694px;
+
+                font-style: normal;
+                font-weight: 600;
+                font-size: 32px;
+                line-height: 44px;
+                text-align: center;
+            }
+            
+            color: $color-green-text;
+        }
+    }
+
+    div.products{
+        @include content-scope();
+        text-align: center;
+        @include mobile{
+            padding-top: 39px; 
+        }
+    
+        @include laptop{
+            padding-top: 44px;
+        }
+    
+        @include desktop{
+            padding-top: 43px;
+        }
+
+        h1 {
+            text-align: center;
+            @include mobile{
+                font-weight: 600;
+                font-size: 35px;
+                line-height: 48px;  
+            }
+        
+            @include laptop{
+                font-weight: 600;
+                font-size: 45px;
+                line-height: 61px;
+            }
+        
+            @include desktop{
+                font-weight: 600;
+                font-size: 45px;
+                line-height: 61px;
+            }
+        }
+
+        & > div {
+            display: flex;
+            height: fit-content;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            @include mobile{
+                margin-bottom: 15px;
+                margin-top: 22px;
+            }
+        
+            @include laptop{
+                margin-bottom: 95px;
+                margin-top: 0px;
+            }
+        
+            @include desktop{
+                margin-bottom: 95px;
+                margin-top: 0px;
+            }
+
+            
+            & > div {
+                
+                @include mobile{
+                    width: 100%;
+                    margin: auto;
+                }
+            
+                @include laptop{
+                    width: 45%;
+                    margin: auto 0;
+                                        
+                }
+            
+                @include desktop{
+                    width: 45%;
+                    margin: auto 0;
+                }
+                
+                div {
+                    @include mobile{
+                        width: 350px;
+                        margin: auto;
+                    }
+                
+                    @include laptop{
+                        width: 315px;
+                        margin-left: 0;
+                        
+                    }
+                
+                    @include desktop{
+                        width: 315px;
+                        margin-left: 0;
+                    }
+                
+                    h2{
+                        margin-bottom: 25px;
+                        @include mobile{
+                            font-weight: 600;
+                            font-size: 25px;
+                            line-height: 34px;
+                        }
+                    
+                        @include laptop{
+                            font-weight: 600;
+                            font-size: 32px;
+                            line-height: 44px;
+                        }
+                    
+                        @include desktop{
+                            font-weight: 600;
+                            font-size: 32px;
+                            line-height: 44px;
+                        }
+                    }
+                    p{
+                        @include mobile{
+                            font-weight: 400;
+                            font-size: 18px;
+                            line-height: 25px;
+                        }
+                    
+                        @include laptop{
+                            font-weight: 400;
+                            font-size: 22px;
+                            line-height: 30px;
+                        }
+                    
+                        @include desktop{
+                            font-weight: 400;
+                            font-size: 22px;
+                            line-height: 30px;
+                        }
+                    }
+                    &:nth-child(1){
+                        @include mobile{
+                            margin-bottom: 33px;
+                            h2{
+
+                            }
+                            
+                        }
+                    
+                        @include laptop{
+                            margin-bottom: 91px;
+                            h2{
+
+                            }
+                        }
+                    
+                        @include desktop{
+                            margin-bottom: 91px;
+                            h2{
+
+                            }
+                            p{
+                                
+                            }
+                        }
+                    }
+                    &:nth-child(2){
+                        @include mobile{
+                            margin-bottom: 8px;
+                            h2{
+                                margin-bottom: 23px;
+                            }
+                        }
+                    
+                        @include laptop{
+                            margin-bottom: 0;
+                            h2{
+                                margin-bottom: 27px;
+                            }
+                        }
+                    
+                        @include desktop{
+                            margin-bottom: 0;
+                            h2{
+                                margin-bottom: 27px;
+                            }
+                        }
+                        h2{
+                            color: $color-green;
+                        }
+                    }
+                }   
+            }
+
+            img{
+                height: 667px;
+                width: 348px;
+            }
+        }
+
+        .title-list{
+            display: block;
+            .list{
+                margin: 0;
+            }
+        }
+
+        .digital-business{
+            margin-top: 10px;
+            & > h1{
+                padding-top: 30px
+            }
+            .tools{
+                @extend .row;
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                @include mobile{
+                    margin-top: 25px;
+                    margin-bottom: 62px;
+                }
+            
+                @include laptop{
+                    margin-top: 40px;
+                    margin-bottom: 78px;
+                }
+            
+                @include desktop{
+                    margin-top: 40px;
+                    margin-bottom: 78px;
+                }
+
+                .tools-item{
+                    display: block;
+                    
+                    border: 1px solid $color-green;
+                    border-radius: 10px;
+
+                    *{
+                        color: black;
+                    }
+
+                    @include mobile{ 
+                        width: 320px;
+                        height: 228px;
+                    }
+                
+                    @include laptop{
+                        width: 368px;
+                        height: 314px;
+                    }
+                
+                    @include desktop{
+                        width: 426px;
+                        height: 314px;
+                    }
+
+                    @include pg-0();
+                    @include mg-0();
+
+                    text-align: center;
+
+                    @include mobile{ 
+                        &:nth-child(n){
+                            margin-top: 15px;
+                            margin-left: 1px;
+                            margin-right: 1px;
+                        }
+    
+                        & > img{
+                            margin-top: 24px;
+                            margin-bottom: 0;
+                            height: 62px;
+                            width: 100px;
+                        }
+
+                        & > p{
+                            &:nth-child(2){
+                                font-weight: 700;
+                                font-size: 22px;
+                                line-height: 30px;
+                                margin-top: 10px;
+                            }
+                            &:nth-child(3){
+                                margin-top: 6px;
+                                margin-left: auto;
+                                margin-right: auto;                               
+                                font-weight: 600;
+                                font-size: 18px;
+                                line-height: 25px;
+                                width: 254px;
+                            }
+                        }
+                    }
+                
+                    @include laptop{
+                        
+                        margin-left: 0px;
+                        margin-right: 0px;
+
+                        &:nth-child(n-3){
+                            margin-top: 0;
+                        }
+                        &:nth-child(n+4){
+                            margin-top: 20px;
+                        }
+    
+                        img{
+                            margin-top: 50px;
+                            margin-bottom: 0;;
+                            height: 62px;
+                            width: 100px;
+                        }
+
+                        p{
+                            margin: 0 auto;
+                            margin-top: 26px;
+                            &:nth-child(2){
+                                font-weight: 700;
+                                font-size: 25px;
+                                line-height: 34px;
+                            }
+                            &:nth-child(3){
+                                margin-top: 22px;
+                                margin-bottom: 50px;
+                                font-weight: 600;
+                                font-size: 18px;
+                                line-height: 25px;
+                                width: 262px;
+                            }
+                        }
+                    }
+                
+                    @include desktop{
+                        margin-left: 0px;
+                        margin-right: 0px;
+
+                        &:nth-child(n+4){
+                            margin-top: 20px;
+                        }
+    
+                        img{
+                            margin-top: 50px;
+                            margin-bottom: 0;;
+                            height: 62px;
+                            width: 100px;
+                        }
+
+                        p{
+                            margin: 0 auto;
+                            margin-top: 26px;
+                            &:nth-child(2){
+                                font-weight: 700;
+                                font-size: 25px;
+                                line-height: 34px;
+                            }
+                            &:nth-child(3){
+                                margin-top: 22px;
+                                margin-bottom: 50px;
+                                font-weight: 600;
+                                font-size: 18px;
+                                line-height: 25px;
+                                width: 262px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .blog{
+        @include content-scope();
+        h1{
+            padding-top: 40px;
+        }
+        .posts{
+            *{color: black;}
+            @extend .row;
+            justify-content: space-around;
+            margin: 0ch;
+            flex-wrap: wrap;
+            width: 100%;
+
+            @include mobile{
+                margin-top: 16px;
+            }
+        
+            @include laptop{
+                margin-top: 28px;
+            }
+        
+            @include desktop{
+                margin-top: 28px;
+            }
+            
+            .post{
+                @include pg-0();
+                @include mg-0();
+
+                @include mobile{ 
+                    margin-bottom: 38px;
+                    max-width: 320px;
+                    margin-left: 1px;
+                    margin-right: 1px;
+                    img{
+                        height: 231px;
+                        width: 100%;
+                        max-width: 320px;
+                        margin: 0;
+                    }
+                    p{
+                        text-align: left;
+                        font-size: 20px;
+                        line-height: 27px;
+                        
+
+                        &:nth-child(2){
+                            font-weight: 600;
+                            margin-top: 14px;
+                        }
+
+                        &:nth-child(3){
+                            width: 317px;
+                            padding-right: 5px;
+                            font-weight: 400;
+                            margin-left: 0;
+                            margin-top: 5px;
+                        }
+                    }
+                }
+            
+                @include laptop{ 
+                    margin-bottom: 0;
+                    max-width: 368px;
+                    img{
+                        height: 231px;
+                        width: 100%;
+                        max-width: 368px;
+                        margin: 0;
+                    }
+                    p{
+                        text-align: left;
+                        font-size: 20px;
+                        line-height: 27px;
+                        max-width: 368px;
+
+                        &:nth-child(2){
+                            font-weight: 600;
+                            margin-top: 14px;
+                        }
+
+                        &:nth-child(3){
+                            font-weight: 400;
+                            margin-left: 0;
+                            margin-top: 5px;
+                        }
+                    }
+                }
+            
+                @include desktop{
+                    margin-bottom: 0;
+                    max-width: 429px;
+                    img{
+                        height: 231px;
+                        width: 100%;
+                        max-width: 429px;
+                        margin: 0;
+                    }
+                    p{
+                        text-align: left;
+                        font-size: 20px;
+                        line-height: 27px;
+                        max-width: 429px;
+
+                        &:nth-child(2){
+                            font-weight: 600;
+                            margin-top: 14px;
+                        }
+
+                        &:nth-child(3){
+                            font-weight: 400;
+                            margin-left: 0;
+                            margin-top: 5px;
+                        }
+                    }
+                }                    
+            }
+        }
+        button {
+            @extend .d-block;
+            margin-left: auto;
+            margin-right: auto;
+            @include mobile{
+                margin-top: 7px;
+                margin-bottom: 39px;
+                width: 317px;
+            }
+            @include laptop{
+                margin-top: 35px;
+                margin-bottom: 34px;
+                width: 255px;
+            }
+            @include desktop{
+                margin-top: 30px;
+                margin-bottom: 34px;
+                width: 255px;
+            }
+
+            
+            height: 56px;
+            font-family: 'OpenSans';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 25px;
+            line-height: 34px;
+            color: $color-green;
+            border: 5px solid #2DC66E;
+            border-radius: 10px;
+            background-color: white;
+            transition: 0.3s;
+
+            &:hover{
+                color: white;
+                background-color: #2DC66E;
+            }
+        }
+    }
+
+    &.contact{
+        background-color: #e2e2e2;
+
+        .contact-card{
+            @include make-row();
+            @include content-scope();
+
+            
+
+            @include mobile{
+                padding-left: 16px;
+                padding-right: 16px;
+                padding-bottom: 55px;
+            }
+        
+            @include laptop{
+                padding-left: 0px;
+                padding-right: 0px;
+                padding-bottom: 50px;
+            }
+        
+            @include desktop{
+                padding-left: 0px;
+                padding-right: 0px;
+                padding-bottom: 44px;
+            }
+
+            .info{
+                @include mobile{
+                    @include make-col(12);
+                    padding: 0;
+                    padding-top: 16px;
+                    *{text-align: left; }
+
+                    h1{
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 35px;
+                        line-height: 47px;
+                        
+                    }
+    
+                    p{
+                        width: 100%;
+                        margin-top: 4px;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 18px;
+                        line-height: 25px;
+                        color:black;
+    
+                        strong{
+                            color: $color-green-text;
+                        }
+                    }
+                }
+            
+                @include laptop{
+                    @include make-col(4);
+                    padding: 0;
+                    padding-top: 116px;
+                    *{text-align: left; }
+
+                    h1{
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 45px;
+                        line-height: 61px;
+                        
+                    }
+    
+                    p{
+                        width: 375px;
+                        margin-top: 9px;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 27px;
+                        color:black;
+    
+                        strong{
+                            color: $color-green-text;
+                        }
+                    }
+                }
+            
+                @include desktop{
+                    @include make-col(4);
+                    padding: 0;
+                    padding-top: 116px;
+                    *{text-align: left; }
+
+                    h1{
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 45px;
+                        line-height: 61px;
+                        
+                    }
+    
+                    p{
+                        width: 375px;
+                        margin-top: 9px;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 27px;
+                        color:black;
+    
+                        strong{
+                            color: $color-green-text;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+body{
+    & > footer{
+        background-color: $color-dark;
+       
+        & > div{
+            display: grid;
+            align-content: center;
+            
+            @include mobile{
+                grid-template-columns: auto;
+                grid-template-rows: 58px auto auto;
+                padding: 0 15px;
+                padding-bottom: 29px;
+                padding-top: 33px;
+            }
+        
+            @include laptop{
+                grid-template-columns: 300px auto;
+                grid-template-rows: 58px auto;
+                padding-bottom: 57px;
+                padding-top: 33px;
+            }
+        
+            @include desktop{
+                grid-template-columns: 300px auto;
+                grid-template-rows: 58px auto;
+                padding-bottom: 56px;
+                padding-top: 33px;
+            }
+
+            @include pg-0();
+            @include mg-0();
+
+            @include content-scope();
+
+            padding-bottom: 56px;
+
+            *{
+                color: white;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 25px;
+                text-align: left;
+            }
+
+            & > a, .structure > ul > li > a{
+                display: block;
+                width: fit-content;
+                @include mobile{
+                    margin: 0 auto;
+                }
+            
+                @include laptop{
+                    margin: 0;
+                }
+            
+                @include desktop{
+                    margin: 0;
+                }
+                
+
+                img{
+                    margin-top: 0px;
+                    width: 163px;
+                    height: 58px;                    
+                }
+            }
+
+            .structure{
+                @include pg-0();
+                @include mg-0();
+                @include mobile{
+                    grid-row: 2;
+                    grid-column: 1;
+                    margin-top: 25px;
+                }
+            
+                @include laptop{
+                    grid-row: 1/3;
+                    grid-column: 2;
+                    margin-top: 13px;
+                }
+            
+                @include desktop{
+                    grid-row: 1/3;
+                    grid-column: 2;
+                    margin-top: 26px;
+                }
+                
+                ul{
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                    li{
+                        @include mg-0();
+                        @include mobile{
+                            margin-bottom: 26px;
+                        }
+                    
+                        @include laptop{
+                            margin-bottom: 26px;
+                        }
+                    
+                        @include desktop{
+                            margin-bottom: 23px;
+                        }
+                    }
+                }
+            }
+
+            & .links{
+                @include pg-0();
+                @include mg-0();
+                @include mobile{
+                    margin-top: 6px;
+                }
+            
+                @include laptop{
+                    margin-top: 19px;
+                }
+            
+                @include desktop{
+                    margin-top: 19px;
+                }
+                display: block;                
+
+                *{
+                    padding: 0;
+                }
+
+                .net-social{
+                    
+                    @include mobile{
+                        margin-top: 17px;
+                    }
+                
+                    @include laptop{
+                        margin-top: 58px;
+                    }
+                
+                    @include desktop{
+                        margin-top: 58px;
+                    }
+                    a img{
+                        width: 30px;
+                        height: 30px;
+                        @include mobile{
+                            margin-right: 19px
+                        }
+                    
+                        @include laptop{
+                            margin-right: 20px
+                        }
+                    
+                        @include desktop{
+                            margin-right: 20px
+                        }
+                    }
+                }
+            }
+
+        }
+        & > p.copyright{
+            @include content-scope();
+            border-top: 1px solid #4A4A4A;
+            color: white;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 22px;
+
+            @include mobile{
+                padding-top: 12px;
+                padding-bottom: 92px;
+            }
+        
+            @include laptop{
+                padding-top: 25px;
+                padding-bottom: 19px;
+            }
+        
+            @include desktop{
+                padding-top: 25px;
+                padding-bottom: 19px;
+            }
+        }
+    }
+
+    & > #bttn-menu{
+        z-index: 3;
+        @include mobile{ 
+            visibility: visible;
+        }
+    
+        @include laptop{ 
+            visibility: hidden;
+        }
+    
+        @include desktop{
+            visibility: hidden;
+        }
+        position: absolute;
+        height: 102px;
+        width: 80px;
+        top:0;
+        right: 0;
+        text-align: center;
+
+        span{
+            display: inline-block;
+            height: 100%;
+            vertical-align: bottom;
+        }
+        
+        img{
+            margin-bottom: 38px;
+            width: 23px;
+        }
+    }
+}
+
+form.m-form{       
+    @include mobile{
+        @include make-col(12);
+        padding: 0;
+        margin-top: 11px;
+    }
+
+    @include laptop{
+        @include make-col(8);
+        padding: 0;
+        margin-top: 0px;
+        padding-left: 80px;
+        padding-top: 76px;
+    }
+
+    @include desktop{
+        @include make-col(8);
+        padding: 0;
+        margin-top: 0px;
+        padding-left: 185px;
+        padding-top: 81px;
+    }
+
+    .form-msg {
+        
+        @include mobile{
+            margin-bottom: 13px;
+        }
+    
+        @include laptop{
+            margin-bottom: 26px;
+        }
+    
+        @include desktop{
+            margin-bottom: 27px;
+        }
+        div {
+            @include make-row();
+            @include mg-0();
+            @include pg-0();
+            
+            @include mobile{
+                margin-bottom: 4px;
+            }
+        
+            @include laptop{
+                margin-bottom: 20px;
+            }
+        
+            @include desktop{
+                margin-bottom: 20px;
+            }
+            
+            label{
+                margin: auto auto 4px 0;
+                @include mobile{
+                    @include make-col(12);
+                }
+            
+                @include laptop{
+                    @include make-col(2);
+                }
+            
+                @include desktop{
+                    @include make-col(2);
+                }
+                
+                font-family: 'OpenSans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 27px;
+            }
+
+            $input-focus-border-color: #84efff;
+
+            input, textarea{
+                @extend .form-control;
+
+                @include mobile{
+                    @include make-col(12);
+                    width: 100%;
+                    height: 36px;
+                }
+            
+                @include laptop{
+                    @include make-col(10);
+                    width: 562px;
+                    height: 36px;
+                }
+            
+                @include desktop{
+                    @include make-col(10);
+                    width: 540px;
+                    height: 36px;
+                }
+                
+                margin: 0 0 0 auto;
+
+                font-family: 'OpenSans';
+                padding-left: 10px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 27px;
+                color: black;
+                
+                border: 1px solid #969696;
+                border-radius: 5px;                            
+            }
+
+            &:nth-child(4){
+                label{
+                    margin-top: 2px;
+                }
+                textarea{
+                    min-height: 36px;
+                    padding-top: 3px;
+                    height: 132px;
+                }
+                
+            }
+        }
+        
+    }
+
+    button{
+        display: block;
+        width: 160px;
+        height: 43px;
+        margin-left: auto;
+        font-family: 'OpenSans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 27px;
+        color: white;
+        background: $color-dark;
+        border: 3px solid $color-dark;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        transition: 0.3s;
+
+        &:hover{
+            // animation 300ms
+
+            color:black;
+            border: 3px solid black;
+            background-color: white;
+        }
+    }
+}
+
+.modal-dialog{
+    max-width: 580px;
+    width: 90%;
+    min-width: 320px;
+}
+
+#signup-modal {
+    & > .modal-dialog{
+    }
+}
+
+.modal-header {
+    padding: 26px;
+    border-bottom: none;
+    h2{
+        width: 100%;
+        font-size: 20px;
+        line-height: 27px !important;
+        text-align: center !important;
+    }
+}
+
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-body{
+    @include make-row;
+    margin: 0;
+    padding: 0 20px 17px 20px;
+    form.m-form{       
+        @include make-col(12);
+        padding: 0;
+        
+        @include mobile{
+            padding-top: 10px;
+        }
+        @include laptop{
+            padding-top: 32px;
+        }
+        @include desktop{
+            padding-top: 32px;
+        }
+
+        input, textarea {
+            @include mobile{
+                @include make-col(12);
+                width: 100%;
+                height: 36px;
+            }
+        
+            @include laptop{
+                @include make-col(10);
+                width: 381px !important;
+                height: 36px;
+            }
+        
+            @include desktop{
+                @include make-col(10);
+                width: 381px !important;
+                height: 36px;
+            }
+        }
+    }
+}
+
+#early-access-modal > {
+    #early-access-modal-dialog{
+        margin: 0 auto;
+        div {
+            margin: auto;
+            width: 100%;
+            height: 220px;
+            background-color: white;
+            border-radius: 10px;
+        }
+        p.early-access{
+            color: #010101;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 27px;
+            width: 100%;
+            margin-top: 97px;
+            margin-bottom: 92px; 
+            padding:  0 10px;           
+        }
+    }
+    
+    
+}
+
+.menu-show{
+    top: 102px !important;
+    transition: 0.3s;
+}
